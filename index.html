@@ -751,7 +751,7 @@ body {
       <button class="tab-button active" data-tab="summary">📊 Финансовый Обзор</button>
       <button class="tab-button" data-tab="income-expenses">💵 Доходы и Расходы</button>
       <button class="tab-button" data-tab="assets-liabilities">🏦 Активы и Пассивы</button>
-      <button class="tab-button" data-tab="recurring">🔁 Постоянные платежи</button>
+      
       <button class="tab-button" data-tab="cashflow">📈 Кешфлоу</button>
       <button class="tab-button" data-tab="reports">📑 Годовой отчет</button>
     </nav>
@@ -849,14 +849,6 @@ body {
             <h2 class="card-title" id="income-form-title">➕ Добавить Доход</h2>
             <form id="income-form">
               <div class="form-group">
-  <label class="form-label">Сумма и валюта</label>
-  <div style="display:flex;align-items:center;gap:12px;">
-    <input type="number" class="form-control" id="income-amount" placeholder="10000" required min="0" step="0.01" style="max-width:130px;">
-    <select class="form-control" id="income-currency" style="max-width:130px;" required></select>
-    <span id="income-rub-value-display" class="rub-value-display"></span>
-  </div>
-</div>
-              <div class="form-group">
                 <label class="form-label">Категория</label>
                 <select class="form-control" id="income-category" required>
                   <option value="Зарплата">Зарплата</option>
@@ -869,6 +861,15 @@ body {
                 <label class="form-label">Описание</label>
                 <input type="text" class="form-control" id="income-description" placeholder="Например: Зарплата за ноябрь">
               </div>
+              <div class="form-group">
+  <label class="form-label">Сумма и валюта</label>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <input type="number" class="form-control" id="income-amount" placeholder="10000" required min="0" step="0.01" style="max-width:130px;">
+    <select class="form-control" id="income-currency" style="max-width:130px;" required></select>
+    <span id="income-rub-value-display" class="rub-value-display"></span>
+  </div>
+</div>
+              
               <div style="display: flex; align-items: center; gap: var(--space-8);">
                 <button type="submit" class="btn btn-primary" id="income-submit-btn">✓ Добавить доход</button>
                 <button type="button" class="btn btn-cancel" id="income-cancel-btn" style="display: none;" onclick="cancelEditIncome()">Отмена</button>
@@ -889,14 +890,6 @@ body {
             <h2 class="card-title" id="expense-form-title">➖ Добавить Расход</h2>
             <form id="expense-form">
               <div class="form-group">
-  <label class="form-label">Сумма и валюта</label>
-  <div style="display:flex;align-items:center;gap:12px;">
-    <input type="number" class="form-control" id="expense-amount" placeholder="5000" required min="0" step="0.01" style="max-width:130px;">
-    <select class="form-control" id="expense-currency" style="max-width:130px;" required></select>
-    <span id="expense-rub-value-display" class="rub-value-display"></span>
-  </div>
-</div>
-              <div class="form-group">
                 <label class="form-label">Категория</label>
                 <select class="form-control" id="expense-category" required>
                   <option value="Еда">Еда</option>
@@ -911,6 +904,15 @@ body {
                 <label class="form-label">Описание</label>
                 <input type="text" class="form-control" id="expense-description" placeholder="Например: Покупки в магазине">
               </div>
+              <div class="form-group">
+  <label class="form-label">Сумма и валюта</label>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <input type="number" class="form-control" id="expense-amount" placeholder="5000" required min="0" step="0.01" style="max-width:130px;">
+    <select class="form-control" id="expense-currency" style="max-width:130px;" required></select>
+    <span id="expense-rub-value-display" class="rub-value-display"></span>
+  </div>
+</div>
+              
               <div style="display: flex; align-items: center; gap: var(--space-8);">
                 <button type="submit" class="btn btn-primary" id="expense-submit-btn">✓ Добавить расход</button>
                 <button type="button" class="btn btn-cancel" id="expense-cancel-btn" style="display: none;" onclick="cancelEditExpense()">Отмена</button>
@@ -941,20 +943,7 @@ body {
         <div class="grid grid-2">
           <div class="card">
             <h2 class="card-title" id="asset-form-title">➕ Добавить Актив</h2>
-            <form id="asset-form">
-              <div class="form-group">
-                <label class="form-label">Название</label>
-                <input type="text" class="form-control" id="asset-name" placeholder="Например: Квартира" required>
-              </div>
-              <div class="form-group">
-  <label class="form-label">Стоимость и валюта</label>
-  <div style="display:flex;align-items:center;gap:12px;">
-    <input type="number" class="form-control" id="asset-value" placeholder="5000000" required min="0" step="0.01" style="max-width:160px;">
-    <select class="form-control" id="asset-currency" style="max-width:130px;" required></select>
-    <span id="asset-rub-value-display" class="rub-value-display"></span>
-  </div>
-</div>
-              <div class="form-group">
+            <div class="form-group">
                 <label class="form-label">Тип</label>
                 <select class="form-control" id="asset-type" required>
                   <option value="Наличные">Наличные</option>
@@ -966,9 +955,24 @@ body {
                 </select>
               </div>
               <div class="form-group">
+                <label class="form-label">Название</label>
+                <input type="text" class="form-control" id="asset-name" placeholder="Например: Квартира" required>
+              </div>
+              <div class="form-group">
                 <label class="form-label">Описание (необязательно)</label>
                 <input type="text" class="form-control" id="asset-description" placeholder="Например: Основной счет для сбережений">
               </div>
+            <form id="asset-form">
+              
+              <div class="form-group">
+  <label class="form-label">Стоимость и валюта</label>
+  <div style="display:flex;align-items:center;gap:12px;">
+    <input type="number" class="form-control" id="asset-value" placeholder="5000000" required min="0" step="0.01" style="max-width:160px;">
+    <select class="form-control" id="asset-currency" style="max-width:130px;" required></select>
+    <span id="asset-rub-value-display" class="rub-value-display"></span>
+  </div>
+</div>
+              
               <div class="form-group">
                 <label class="form-label">Ежемесячный доход</label>
                 <div style="display: flex; gap: var(--space-8); margin-bottom: var(--space-8);">
@@ -1007,11 +1011,27 @@ body {
 
           <div class="card">
             <h2 class="card-title" id="liability-form-title">➖ Добавить Пассив</h2>
-            <form id="liability-form">
+            
+            <div class="form-group">
+                <label class="form-label">Тип</label>
+                <select class="form-control" id="liability-type" required>
+                  <option value="Кредит">Кредит</option>
+                  <option value="Ипотека">Ипотека</option>
+                  <option value="Долг">Долг</option>
+                  <option value="Другое">Другое</option>
+                </select>
+              </div>
               <div class="form-group">
                 <label class="form-label">Название</label>
                 <input type="text" class="form-control" id="liability-name" placeholder="Например: Ипотека" required>
               </div>
+              <div class="form-group">
+                <label class="form-label">Описание (необязательно)</label>
+                <input type="text" class="form-control" id="liability-description" placeholder="Например: Ипотека на квартиру">
+              </div>
+              <div class="form-group">
+            <form id="liability-form">
+              
               <div class="form-group">
   <label class="form-label">Сумма и валюта</label>
   <div style="display:flex;align-items:center;gap:12px;">
@@ -1024,20 +1044,7 @@ body {
                 <label class="form-label">Процентная ставка (%)</label>
                 <input type="number" class="form-control" id="liability-rate" placeholder="8.5" step="0.01" min="0">
               </div>
-              <div class="form-group">
-                <label class="form-label">Тип</label>
-                <select class="form-control" id="liability-type" required>
-                  <option value="Кредит">Кредит</option>
-                  <option value="Ипотека">Ипотека</option>
-                  <option value="Долг">Долг</option>
-                  <option value="Другое">Другое</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label class="form-label">Описание (необязательно)</label>
-                <input type="text" class="form-control" id="liability-description" placeholder="Например: Ипотека на квартиру">
-              </div>
-              <div class="form-group">
+              
   <label class="form-label">Ежемесячный расход</label>
   <div style="display:flex;align-items:center;gap:12px;">
     <input type="number" class="form-control" id="liability-monthly-expense" placeholder="50000" min="0" step="0.01" style="max-width:120px;">
@@ -2899,12 +2906,9 @@ body {
         <div style="background: var(--color-bg-3); border: 1px solid var(--color-card-border); border-radius: var(--radius-lg); padding: var(--space-20); margin-bottom: var(--space-16);">
           <h3 style="font-size: var(--font-size-xl); font-weight: var(--font-weight-semibold); margin: 0 0 var(--space-16) 0; color: var(--color-success);">📈 Доходы (Income Statement)</h3>
           <table style="width: 100%; border-collapse: collapse;">
+            
             <tr style="border-bottom: 1px solid var(--color-card-border);">
-              <td style="padding: var(--space-10) 0; font-size: var(--font-size-md);">Постоянные доходы</td>
-              <td style="padding: var(--space-10) 0; text-align: right; font-weight: var(--font-weight-semibold);">${formatNumber(recurringMonthlyIncome)} ₽</td>
-            </tr>
-            <tr style="border-bottom: 1px solid var(--color-card-border);">
-              <td style="padding: var(--space-10) 0; font-size: var(--font-size-md);">Одноразовые доходы</td>
+              <td style="padding: var(--space-10) 0; font-size: var(--font-size-md);">Доходы</td>
               <td style="padding: var(--space-10) 0; text-align: right; font-weight: var(--font-weight-semibold);">${formatNumber(oneTimeIncome)} ₽</td>
             </tr>
             <tr style="border-bottom: 1px solid var(--color-card-border);">
@@ -2922,12 +2926,9 @@ body {
         <div style="background: var(--color-bg-4); border: 1px solid var(--color-card-border); border-radius: var(--radius-lg); padding: var(--space-20); margin-bottom: var(--space-16);">
           <h3 style="font-size: var(--font-size-xl); font-weight: var(--font-weight-semibold); margin: 0 0 var(--space-16) 0; color: var(--color-error);">📉 Расходы (Expense Statement)</h3>
           <table style="width: 100%; border-collapse: collapse;">
+            
             <tr style="border-bottom: 1px solid var(--color-card-border);">
-              <td style="padding: var(--space-10) 0; font-size: var(--font-size-md);">Постоянные расходы</td>
-              <td style="padding: var(--space-10) 0; text-align: right; font-weight: var(--font-weight-semibold);">${formatNumber(recurringMonthlyExpense)} ₽</td>
-            </tr>
-            <tr style="border-bottom: 1px solid var(--color-card-border);">
-              <td style="padding: var(--space-10) 0; font-size: var(--font-size-md);">Одноразовые расходы</td>
+              <td style="padding: var(--space-10) 0; font-size: var(--font-size-md);">Расходы</td>
               <td style="padding: var(--space-10) 0; text-align: right; font-weight: var(--font-weight-semibold);">${formatNumber(oneTimeExpense)} ₽</td>
             </tr>
             <tr style="border-bottom: 1px solid var(--color-card-border);">
@@ -2998,10 +2999,10 @@ body {
           window.__monthlyReportChart = new Chart(ctx, {
             type: 'doughnut',
             data: {
-              labels: ['Постоянные доходы', 'Одноразовые доходы', 'Доход от активов', 'Постоянные расходы', 'Одноразовые расходы', 'Расходы на пассивы'],
+              labels: ['Доходы', 'Доход от активов',  'Расходы', 'Расходы на пассивы'],
               datasets: [{
                 label: 'Финансы',
-                data: [recurringMonthlyIncome, oneTimeIncome, assetMonthlyIncome, recurringMonthlyExpense, oneTimeExpense, liabilityMonthlyExpense],
+                data: [ oneTimeIncome, assetMonthlyIncome,  oneTimeExpense, liabilityMonthlyExpense],
                 backgroundColor: ['#1FB8CD', '#FFC185', '#B4413C', '#ECEBD5', '#5D878F', '#DB4545']
               }]
             },
